@@ -110,7 +110,7 @@ class Commandline
         ["--tasklist-font-focus=PANGO", "Tasklist font for focused client", [:default]],
 
         # Misc
-        ['--inject-lua', "Inject lua code in theme.lua", [:default]],
+        ['--inject-lua=PATH', "Inject lua code in theme.lua", [:default]],
         ['--apply=REGEX', "Apply the first matching theme.", [:default]],
         ['--apply-with-rofi', "Use rofi to apply theme", [:default]],
       ]
