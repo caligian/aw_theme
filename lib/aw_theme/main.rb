@@ -8,7 +8,7 @@ include Theme
 def main()
   theme_template = Theme::get_current()
   options = Commandline.main(theme_template)   
-  options.has_key? "inject_lua" and %x(bash ./inject_lua)
+  options.has_key? "inject_lua" and %x(bash ./inject_lua.sh)
 
   # Apply args
   if options.has_key? "apply"

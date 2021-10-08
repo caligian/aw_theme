@@ -9,6 +9,10 @@ Usage: Inject required lua code for enabling user themes defined in json.
 
 # Madatorily requires awesome-copycat themes
 theme_lua="${1:-$HOME/.config/awesome/themes/powerarrow-dark/theme.lua}"
+
+require_loc=$(egrep -n 'require' "$theme_lua" | head -n 1 | cut -d ':' -f 1)
+require_loc=$[require_loc - 1]
+
 return_loc=$(egrep -n 'return theme' "$theme_lua" | cut -d ':' -f 1)
 return_loc=$[return_loc - 1]
 
@@ -30,6 +34,12 @@ end
 EOF
            )
 
+
+# Add lunajson
+sed -i '/local gears = require("gears")/alocal json = require("lunajson")' $theme_lua 
+
+# Add the json overwrite script
 till_return="$(cat $theme_lua | head -n $return_loc)"
-till_return="${till_return}${return_s}\n\nreturn theme"
-echo $till_return > $theme_lua
+till_return="${till_return}\n\n${return_s}\n\nreturn theme"
+
+echo "$till_return" > $theme_lua
