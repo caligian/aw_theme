@@ -6,7 +6,6 @@ Gem::Specification.new do |spec|
   spec.name          = "aw_theme"
   spec.version       = AwTheme::VERSION
   spec.authors       = ["Krunal Pamkar"]
-  spec.version       = "0.0.1"
   spec.email         = ["kpamkar@gmail.com"]
 
   spec.summary       = "Change awesomewm colorschemes"

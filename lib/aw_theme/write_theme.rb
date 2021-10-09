@@ -17,7 +17,6 @@ module Theme
 
   def write(th_json)
     File.open(JSON_DEST, 'w') { |fh| fh.write(th_json) }
-    apply(JSON.parse(th_json)['name'])
   end
 
   def save(th, th_json)
